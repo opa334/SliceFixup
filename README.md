@@ -10,4 +10,4 @@ Back in the iOS 14 days, before I discovered the old ABI was upwards compatible,
 
 SliceFixup is a tool that, based on the iOS version it's running on, removes the incompatible arm64e slice, so that the outcome is a dylib that only has the supported slice in it, so everything works fine. It is supposed to be called in the `postinst` on all of the dylibs that require this fix (e.g. all dylibs that need to inject into an arm64e process). It does this by only removing the slice from the FAT header, so the actual slice is still in the binary, it's just not found.
 
-Before you can use this tool, you need to setup something like (plipo_package.sh)[https://github.com/opa334/CCSupport/blob/74762743acb839fcdcaeb61785fa54662b860542/plipo_package.sh] to have both an Xcode 11 and an Xcode 12+ slice in your dylibs.
+Before you can use this tool, you need to setup something like [plipo_package.sh](https://github.com/opa334/CCSupport/blob/74762743acb839fcdcaeb61785fa54662b860542/plipo_package.sh) to have both an Xcode 11 and an Xcode 12+ slice in your dylibs.
