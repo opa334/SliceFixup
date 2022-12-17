@@ -1,0 +1,9 @@
+Package: com.opa334.slicefixup
+Name: Slice Fixup
+Version: 1.0
+Architecture: iphoneos-arm
+Description: Removes incompatible arm64e slice from dylibs
+Maintainer: opa334
+Author: opa334
+Section: System
+Tag: role::hacker
