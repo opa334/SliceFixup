@@ -2,7 +2,7 @@
 
 ## Problem
 
-The arm64e ABI was changed in iOS 14 (Xcode 11) and therefore any arm64e dylib compiled with Xcode 12 or newer does not support iOS 13. The old ABI was upwards compatible so for the longest time people were just compiling their dylibs with Xcode 11. This changed in iOS 15 now however, there are now issues with loading old ABI slices into new ABI processes. For whatever reason most dylibs still work fine, but one of mine (CraneSupport.dylib) was not working.
+The arm64e ABI was changed in iOS 14 (Xcode 12) and therefore any arm64e dylib compiled with Xcode 12 or newer does not support iOS 13. The old ABI was upwards compatible so for the longest time people were just compiling their dylibs with Xcode 11. This changed in iOS 15 now however, there are now issues with loading old ABI slices into new ABI processes. For whatever reason most dylibs still work fine, but one of mine (CraneSupport.dylib) was not working.
 
 Back in the iOS 14 days, before I discovered the old ABI was upwards compatible, I made a script that uses a patched lipo to join together a slice of both the old and new arm64e ABIs. Now that this script is actually needed I tested it some more and discovered that dyld would always prefer the old ABI slice over the new ABI slice, which means that having the old slice in the binary always also breaks iOS 15.
 
